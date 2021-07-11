@@ -4,29 +4,17 @@ spring:
         username: master_user_01
         password: master
         driverClassName: org.postgresql.Driver
-
-
-#spring.datasource.firstdb.jdbc-url=jdbc:postgresql://3.37.244.96:5432/kotlindb
-#spring.datasource.firstdb.username=master_user_01
-#spring.datasource.firstdb.password=master
-#spring.datasource.firstdb.driver-class-name=org.postgresql.Driver
-
-#spring:
-#    datasource:
-#        url: jdbc:postgresql://3.37.244.96:5432/testdb
-#        username:testuser
-#        password:testuser1!
-#        driverClassName: org.postgresql.Driver
-#    jpa:
-#        properties:
-#            hibernate:
-#                temp:
-#                    use_jdbc_metadata_defaults: false
-#                show_sql: true
-#        generate-ddl: true
-#        hibernate:
-#            ddl-auto: update
-#            generate-ddl: true
-#            properties:
-#            temp:
-#                use_jdbc_metadata_defaults: false
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        properties.hibernate:
+            # Schema 자동 업데이트, Entity와 비교해서, 길이 변경은 제외
+            hbm2ddl.auto: update
+            # 보여지는 SQL을 예쁘게 보여줌
+            format_sql: true
+        showSql: true
+        generate-ddl: true
+        # WARN 23008 에러 제거
+        open-in-view: false
+        hibernate:
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
