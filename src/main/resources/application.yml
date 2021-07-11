@@ -1,6 +1,7 @@
 spring:
     datasource:
-        url: jdbc:postgresql://3.37.244.96:5432/kotlindb
+#        url: jdbc:postgresql://3.37.244.96:5432/kotlindb
+        url: jdbc:postgresql://127.0.0.1:5432/kotlindb
         username: master_user_01
         password: master
         driverClassName: org.postgresql.Driver
