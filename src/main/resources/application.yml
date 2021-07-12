@@ -1,10 +1,13 @@
 spring:
     datasource:
-#        url: jdbc:postgresql://3.37.244.96:5432/kotlindb
-        url: jdbc:postgresql://127.0.0.1:5432/kotlindb
+        url: jdbc:postgresql://3.37.244.96:5432/kotlindb
+#        url: jdbc:postgresql://127.0.0.1:5432/kotlindb
         username: master_user_01
         password: master
         driverClassName: org.postgresql.Driver
+        hikari:
+            connection-timeout: 20000
+            maximum-pool-size: 10
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         properties.hibernate:
@@ -17,5 +20,6 @@ spring:
         # WARN 23008 에러 제거
         open-in-view: false
         hibernate:
+            ddl-auto: validate
             naming:
                 physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
