@@ -1,6 +1,8 @@
 spring:
+    config:
+        activate:
+          on-profile: dev
     datasource:
-            #        url: jdbc:postgresql://3.37.244.96:5432/kotlindb
         url: jdbc:postgresql://127.0.0.1:5432/kotlindb
         username: master_user_01
         password: master
@@ -23,3 +25,40 @@ spring:
             ddl-auto: validate
             naming:
                 physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+
+---
+spring:
+    config:
+        activate:
+            on-profile: local
+    datasource:
+        url: jdbc:postgresql://3.37.244.96:5432/kotlindb
+        username: master_user_01
+        password: master
+        driverClassName: org.postgresql.Driver
+        hikari:
+            connection-timeout: 20000
+            maximum-pool-size: 10
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        properties.hibernate:
+            hbm2ddl.auto: update
+            format_sql: true
+        showSql: true
+        generate-ddl: true
+        open-in-view: false
+        hibernate:
+            ddl-auto: validate
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+logging:
+    level:
+        org:
+            hibernate.SQL: DEBUG
+            type:
+                descriptor:
+                    sql:
+                        BasicBinder: TRACE
+            springframework:
+                security: DEBUG

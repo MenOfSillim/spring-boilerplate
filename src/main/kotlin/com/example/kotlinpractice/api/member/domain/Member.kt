@@ -7,7 +7,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "MEMBER")
-data class Member(
+class Member(
     @Id
     @Column(name = "id")
     var id: String = "",
