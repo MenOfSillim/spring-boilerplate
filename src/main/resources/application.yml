@@ -11,20 +11,25 @@ spring:
             connection-timeout: 20000
             maximum-pool-size: 10
     jpa:
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
-        properties.hibernate:
-            # Schema 자동 업데이트, Entity와 비교해서, 길이 변경은 제외
-            hbm2ddl.auto: update
-            # 보여지는 SQL을 예쁘게 보여줌
-            format_sql: true
-        showSql: true
+        database: POSTGRESQL
+        database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+        show-sql: true
         generate-ddl: true
-        # WARN 23008 에러 제거
         open-in-view: false
         hibernate:
-            ddl-auto: validate
+            # 운영 시
+            ddl-auto: create-drop
             naming:
                 physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        #실행 시 warning 제거
+        properties:
+            hibernate:
+                format_sql: false
+                jdbc:
+                    lob:
+                        non_contextual: true
+server:
+    port: 80
 
 
 ---
@@ -41,17 +46,23 @@ spring:
             connection-timeout: 20000
             maximum-pool-size: 10
     jpa:
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
-        properties.hibernate:
-            hbm2ddl.auto: update
-            format_sql: true
-        showSql: true
+        database: POSTGRESQL
+        database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+        show-sql: true
         generate-ddl: true
         open-in-view: false
         hibernate:
-            ddl-auto: validate
+            # 운영 시
+            ddl-auto: create-drop
             naming:
                 physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        #실행 시 warning 제거
+        properties:
+            hibernate:
+                format_sql: false
+                jdbc:
+                    lob:
+                        non_contextual: true
 logging:
     level:
         org:

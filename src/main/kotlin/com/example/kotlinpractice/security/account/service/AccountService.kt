@@ -1,5 +1,7 @@
-package com.example.kotlinpractice.security.account
+package com.example.kotlinpractice.security.account.service
 
+import com.example.kotlinpractice.security.account.domain.Account
+import com.example.kotlinpractice.security.account.repository.AccountRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -12,6 +14,7 @@ class AccountService(
     @Autowired private val accountRepository: AccountRepository,
     @Autowired private val passwordEncoder: PasswordEncoder
 ) : UserDetailsService {
+
     fun saveAccount(account: Account): Account {
         account.password = this.passwordEncoder.encode(account.password)
         return accountRepository.save(account)
