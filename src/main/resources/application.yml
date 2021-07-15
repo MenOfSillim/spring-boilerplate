@@ -28,6 +28,16 @@ spring:
                 jdbc:
                     lob:
                         non_contextual: true
+logging:
+    level:
+        org:
+            hibernate.SQL: DEBUG
+            type:
+                descriptor:
+                    sql:
+                        BasicBinder: TRACE
+            springframework:
+                security: DEBUG
 server:
     port: 80
 
