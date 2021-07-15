@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 @CrossOrigin(maxAge = 3600)
 @RestController
 class AppsController() {
-    @GetMapping("/", produces = [MediaTypes.HAL_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping("/app", produces = [MediaTypes.HAL_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE])
     @ResponseBody
     fun helloWorld(): ResponseEntity<Any?> {
         return ResponseEntity("Hello World", HttpStatus.OK)
