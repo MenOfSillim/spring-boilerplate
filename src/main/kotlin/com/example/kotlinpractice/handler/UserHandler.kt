@@ -9,6 +9,7 @@ import org.springframework.web.reactive.function.server.body
 
 @Component
 class UserHandler(val userService: UserService) {
+
     fun register(serverRequest: ServerRequest) = serverRequest.bodyToMono(User::class.java).map {
         userService.register(it)
     }.flatMap {

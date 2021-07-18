@@ -9,6 +9,7 @@ import reactor.core.scheduler.Schedulers
 
 @Service
 class UserService(val userRepository: UserRepository) {
+
     fun register(user: User) = Mono.fromCallable {
         userRepository.save(user)
     }.subscribeOn(Schedulers.parallel())

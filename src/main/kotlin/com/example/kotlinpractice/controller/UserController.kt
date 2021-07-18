@@ -12,7 +12,7 @@ class UserController(val userService: UserService) {
     fun register(@RequestBody user: User) = userService.register(user)
 
     @GetMapping("users")
-    fun getAll() =  userService.findAll()
+    fun getAll() = userService.findAll()
 
     @GetMapping("users/{id}")
     fun getUser(@PathVariable id: Long) = userService.findById(id)
