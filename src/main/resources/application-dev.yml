@@ -1,42 +1,50 @@
 spring:
-    config:
-        activate:
-          on-profile: dev
-    datasource:
-        url: jdbc:postgresql://127.0.0.1:5432/kotlindb
-        username: master_user_01
-        password: master
-        driverClassName: org.postgresql.Driver
-        hikari:
-            connection-timeout: 20000
-            maximum-pool-size: 10
-    jpa:
-        database: POSTGRESQL
-        database-platform: org.hibernate.dialect.PostgreSQL95Dialect
-        show-sql: true
-        generate-ddl: true
-        open-in-view: false
-        hibernate:
-            # 운영 시
-            ddl-auto: create-drop
-            naming:
-                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-        #실행 시 warning 제거
-        properties:
-            hibernate:
-                format_sql: false
-                jdbc:
-                    lob:
-                        non_contextual: true
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/kotlindb
+    username: master_user_01
+    password: master
+    driverClassName: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    generate-ddl: true
+    open-in-view: false
+    hibernate:
+      # 운영 시
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #실행 시 warning 제거
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          lob:
+            non_contextual: true
 logging:
-    level:
-        org:
-            hibernate.SQL: DEBUG
-            type:
-                descriptor:
-                    sql:
-                        BasicBinder: TRACE
-            springframework:
-                security: DEBUG
+  level:
+    org:
+      hibernate.SQL: DEBUG
+      type:
+        descriptor:
+          sql:
+            BasicBinder: TRACE
+      springframework:
+        security: DEBUG
 server:
-    port: 80
+  port: 80
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  paths-to-match:
+    - /test/**

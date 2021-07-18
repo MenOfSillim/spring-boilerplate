@@ -42,8 +42,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
     // swagger
-    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.3.4")
-    implementation("org.springdoc:springdoc-openapi-kotlin:1.3.4")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.5.9")
+    implementation("org.springdoc:springdoc-openapi-kotlin:1.5.9")
 
 }
 
