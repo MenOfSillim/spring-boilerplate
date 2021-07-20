@@ -1,4 +1,4 @@
-package com.example.kotlinpractice.entity
+package com.example.kotlinpractice.springdoc.entity
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

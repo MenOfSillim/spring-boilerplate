@@ -1,7 +1,7 @@
-package com.example.kotlinpractice.controller
+package com.example.kotlinpractice.springdoc.controller
 
-import com.example.kotlinpractice.entity.User
-import com.example.kotlinpractice.service.UserService
+import com.example.kotlinpractice.springdoc.entity.User
+import com.example.kotlinpractice.springdoc.service.UserService
 import org.springframework.web.bind.annotation.*
 
 @RestController

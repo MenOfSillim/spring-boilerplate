@@ -1,7 +1,7 @@
-package com.example.kotlinpractice.handler
+package com.example.kotlinpractice.springdoc.handler
 
-import com.example.kotlinpractice.entity.User
-import com.example.kotlinpractice.service.UserService
+import com.example.kotlinpractice.springdoc.entity.User
+import com.example.kotlinpractice.springdoc.service.UserService
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse

@@ -1,7 +1,7 @@
-package com.example.kotlinpractice.service
+package com.example.kotlinpractice.springdoc.service
 
-import com.example.kotlinpractice.entity.User
-import com.example.kotlinpractice.resporitory.UserRepository
+import com.example.kotlinpractice.springdoc.entity.User
+import com.example.kotlinpractice.springdoc.resporitory.UserRepository
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
